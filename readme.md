@@ -2,8 +2,12 @@
 
 copy .env.example  to .env
 
-run php artisan key:generate
+composer install 
 
+php artisan key:generate
+
+
+---------------------------
 laravel jquery bootstrap
 
 random code check
