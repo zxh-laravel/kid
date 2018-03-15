@@ -4,4 +4,8 @@ copy .env.example  to .env
 
 run php artisan key:generate
 
-laravel jquery bootstrapa a
+laravel jquery bootstrap
+
+random code check
+
+check again
