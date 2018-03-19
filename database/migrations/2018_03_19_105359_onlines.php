@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class Onlines extends Migration
 {
     /**
      * Run the migrations.
@@ -14,19 +14,18 @@ class CreateUsersTable extends Migration
     public function up()
     {
         /*
-         * 用户表
-         * name   名称
-         * email  邮箱
-         * password 密码
-         * type 0 管理员 1老师 2家长
-         * */
-        Schema::create('users', function (Blueprint $table) {
+      * 在线报名
+      * name   宝宝姓名
+      * sex   姓名 1 男 2 女
+      * mobile 电话
+      * age 宝宝年龄
+     * */
+        Schema::create('onlines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->tinyInteger('type')->default(0);
-            $table->rememberToken();
+            $table->tinyInteger('sex');
+            $table->integer('mobile');
+            $table->integer('age');
             $table->timestamps();
         });
     }
@@ -38,6 +37,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        //
     }
 }

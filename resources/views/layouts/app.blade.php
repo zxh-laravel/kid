@@ -13,6 +13,7 @@
     <!-- Styles -->
     {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -69,6 +70,7 @@
     <!-- Scripts -->
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    @yield('js')
 {{--    <script src="{{ asset('js/app.js') }}"></script>--}}
 </body>
 </html>

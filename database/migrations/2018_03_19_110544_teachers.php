@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class Teachers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,19 +14,19 @@ class CreateUsersTable extends Migration
     public function up()
     {
         /*
-         * 用户表
-         * name   名称
-         * email  邮箱
-         * password 密码
-         * type 0 管理员 1老师 2家长
-         * */
-        Schema::create('users', function (Blueprint $table) {
+       * 老师
+       * name   名称
+       * img  图片
+       * content  介绍
+       * class_id 班级id
+      * */
+        Schema::create('classes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->tinyInteger('type')->default(0);
-            $table->rememberToken();
+            $table->string('img');
+            $table->string('content');
+            $table->integer('class_id');
+            $table->string('last_modify_user');
             $table->timestamps();
         });
     }
@@ -38,6 +38,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        //
     }
 }

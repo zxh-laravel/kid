@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('css')
+    {{-- css add in here--}}
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -20,4 +24,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    {{-- js add in here--}}
 @endsection
