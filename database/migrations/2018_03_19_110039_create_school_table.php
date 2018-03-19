@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class School extends Migration
+class CreateSchoolTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,15 +23,15 @@ class School extends Migration
     * open_time 开园时间
     * close_time 开园时间
    * */
-        Schema::create('onlines', function (Blueprint $table) {
+        Schema::create('school', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('content');
             $table->integer('mobile');
             $table->string('wechat');
             $table->string('address');
-            $table->timestamp('open_time');
-            $table->timestamp('close_time');
+            $table->dateTime('open_time')->default(null);
+            $table->dateTime('close_time')->default(null);
             $table->string('last_modify_user');
             $table->timestamps();
         });
@@ -44,6 +44,6 @@ class School extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('school');
     }
 }

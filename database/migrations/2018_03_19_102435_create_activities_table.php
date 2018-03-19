@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Specials extends Migration
+class CreateActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,20 @@ class Specials extends Migration
     public function up()
     {
         /*
-      * 特色教程
-      * name   名称
-      * img  图片
-      * content  介绍
-     * */
-        Schema::create('classes', function (Blueprint $table) {
+         * 活动
+         * title   标题
+         * content  内容
+         * status 1生效  0 无效
+         * create_user 创建者
+         * last_modify_user 最后修改者
+        * */
+        Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('img');
+            $table->string('title');
             $table->string('content');
-            $table->string('last_modify_user');
+            $table->tinyInteger('status')->default(1);
             $table->string('create_user');
+            $table->string('last_modify_user');
             $table->timestamps();
         });
     }
@@ -37,6 +39,6 @@ class Specials extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('activities');
     }
 }

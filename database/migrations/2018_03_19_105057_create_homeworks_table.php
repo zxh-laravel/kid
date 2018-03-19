@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Homeworks extends Migration
+class CreateHomeworksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -25,7 +25,7 @@ class Homeworks extends Migration
             $table->increments('id');
             $table->string('content');
             $table->integer('class_id');
-            $table->date('date');
+            $table->date('date')->default(null);
             $table->string('create_user');
             $table->string('last_modify_user');
             $table->timestamps();
@@ -39,6 +39,6 @@ class Homeworks extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('homeworks');
     }
 }

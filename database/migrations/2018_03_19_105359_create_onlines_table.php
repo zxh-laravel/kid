@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Classes extends Migration
+class CreateOnlinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +14,18 @@ class Classes extends Migration
     public function up()
     {
         /*
-        * 班级
-        * name   名称
-        * create_user 创建者
-        * last_modify_user 最后修改者
-       * */
-        Schema::create('classes', function (Blueprint $table) {
+      * 在线报名
+      * name   宝宝姓名
+      * sex   姓名 1 男 2 女
+      * mobile 电话
+      * age 宝宝年龄
+     * */
+        Schema::create('onlines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('create_user');
-            $table->string('last_modify_user');
+            $table->tinyInteger('sex')->default(1);
+            $table->integer('mobile');
+            $table->integer('age');
             $table->timestamps();
         });
     }
@@ -35,6 +37,6 @@ class Classes extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('onlines');
     }
 }

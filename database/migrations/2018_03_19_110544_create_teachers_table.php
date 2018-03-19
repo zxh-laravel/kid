@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Foods extends Migration
+class CreateTeachersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,22 +14,18 @@ class Foods extends Migration
     public function up()
     {
         /*
-        * 食物
-        * title   标题
-        * content  内容
-        * img  图片
-        * type  1 早餐 2中餐 3 晚餐
-        * date  时间
-        * create_user 创建者
-        * last_modify_user 最后修改者
-       * */
-        Schema::create('foods', function (Blueprint $table) {
+       * 老师
+       * name   名称
+       * img  图片
+       * content  介绍
+       * class_id 班级id
+      * */
+        Schema::create('teachers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('content');
+            $table->string('name');
             $table->string('img');
-            $table->tinyInteger('type')->default(1);
-            $table->date('date');
-            $table->string('create_user');
+            $table->string('content');
+            $table->integer('class_id');
             $table->string('last_modify_user');
             $table->timestamps();
         });
@@ -42,6 +38,6 @@ class Foods extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('teachers');
     }
 }

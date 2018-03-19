@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class News extends Migration
+class CreateNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -41,6 +41,6 @@ class News extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('news');
     }
 }
