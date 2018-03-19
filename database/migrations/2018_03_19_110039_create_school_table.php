@@ -30,8 +30,8 @@ class CreateSchoolTable extends Migration
             $table->integer('mobile');
             $table->string('wechat');
             $table->string('address');
-            $table->dateTime('open_time')->default(null);
-            $table->dateTime('close_time')->default(null);
+            $table->time('open_time');
+            $table->time('close_time');
             $table->string('last_modify_user');
             $table->timestamps();
         });

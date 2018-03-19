@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/school', 'SchoolController@index')->name('school');
+
+
+
+Route::prefix('test')->group(function () {
+
+});
