@@ -5,8 +5,6 @@
 @endsection
 
 @section('content')
-    <h4>{{$school['name']}}</h4>
-    <p>{{$school['content']}}</p>
 
 @endsection
 
