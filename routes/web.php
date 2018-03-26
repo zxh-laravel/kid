@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'IndexController@index')->name('index');
+Route::get('/act', 'ActController@index')->name('act');
 
 Auth::routes();
 

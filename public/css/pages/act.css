@@ -1,0 +1,26 @@
+h3{
+    text-align: center;
+    margin: 20px auto;
+}
+.recent-act{
+    min-height: 300px;
+}
+.recent-act-carousel{
+    width: 50%;
+    display: inline-block;
+    float: left;
+    background: #eee;
+    height: 300px;
+}
+.act-info{
+    width: 50%;
+    display:inline-block;
+    float: left;
+    text-indent: 50px;
+}
+.act-info p{
+    display: none;
+}
+.act-info p.active{
+    display: block;
+}

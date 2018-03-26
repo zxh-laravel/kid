@@ -11,8 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
     <link href="{{ asset('css/base/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/base/kid.css') }}" rel="stylesheet">
     @yield('css')
 </head>
 <style>
@@ -27,12 +28,14 @@
 
 </style>
 <body>
-     <div>
-         <div id="header">
-
+     <div class="full-container">
+         <div id="hd">
          </div>
-     @yield('content')
-
+         <div class="bd">
+            @yield('content')
+         </div>
+         <div class="ft">
+         </div>
     </div>
 
     <!-- Scripts -->
