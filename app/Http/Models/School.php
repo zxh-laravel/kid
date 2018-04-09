@@ -15,4 +15,6 @@ class School extends Model
 {
 
     protected $table = 'school';
+
+    protected $fillable = ['name', 'content', 'mobile', 'wechat', 'address', 'open_time', 'close_time', 'last_modify_user'];
 }

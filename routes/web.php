@@ -28,9 +28,12 @@ Route::get('/school', 'SchoolController@index')->name('school');
 Route::prefix('admin')->group(function () {
     Route::post('/upload', 'Admin\UploadController@index');
 
-    Route::get('/', 'Admin\CmsController@index');
+    Route::get('/', 'Admin\SchoolController@index');
+    Route::put('/{id}', 'Admin\SchoolController@update');
+
+    Route::get('/cms', 'Admin\CmsController@index');
     Route::post('/cms', 'Admin\CmsController@store');
-    Route::get('/cms', 'Admin\CmsController@create');
+    Route::get('/cmsCreate', 'Admin\CmsController@create');
     Route::get('/cms/{id}', 'Admin\CmsController@show');
     Route::delete('/cms/{id}', 'Admin\CmsController@destroy');
     Route::put('/cms/{id}', 'Admin\CmsController@update');

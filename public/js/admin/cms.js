@@ -15,7 +15,7 @@ $(function () {
             var self = this
 
             $('.j_new').click(function () {
-                location.href = '/admin/cms'
+                location.href = '/admin/cmsCreate'
             })
             $('.j_delete').click(function () {
                 self.s.id = $(this).data('id');

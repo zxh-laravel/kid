@@ -25,8 +25,11 @@
             <a class="navbar-brand" href="/admin">Admin</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link {{Request::getPathInfo() == '/admin' ? 'active' : ''}}" href="/admin">CMS</a>
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::getPathInfo() == '/admin' ? 'active' : ''}}" href="/admin">学校信息</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::getPathInfo() == '/admin/cms' ? 'active' : ''}}" href="/admin/cms">CMS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>

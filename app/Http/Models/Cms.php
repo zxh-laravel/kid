@@ -16,5 +16,5 @@ class Cms extends Model
 
     protected $table = 'cms';
 
-    protected $fillable = ['name', 'content', 'img'];
+    protected $fillable = ['name', 'content', 'img', 'last_modify_user', 'create_user'];
 }
