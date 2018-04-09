@@ -21,6 +21,17 @@ Route::get('/school', 'SchoolController@index')->name('school');
 
 
 
-Route::prefix('test')->group(function () {
+//admin 管理后台
+//Route::prefix('admin')->middleware('auth')->group(function () {
+//    Route::get('/', 'Admin\IndexController@index');
+//});
+Route::prefix('admin')->group(function () {
+    Route::post('/upload', 'Admin\UploadController@index');
 
+    Route::get('/', 'Admin\CmsController@index');
+    Route::post('/cms', 'Admin\CmsController@store');
+    Route::get('/cms', 'Admin\CmsController@create');
+    Route::get('/cms/{id}', 'Admin\CmsController@show');
+    Route::delete('/cms/{id}', 'Admin\CmsController@destroy');
+    Route::put('/cms/{id}', 'Admin\CmsController@update');
 });

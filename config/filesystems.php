@@ -54,6 +54,13 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'uploads' => [
+
+            'driver' => 'local',
+
+            // 文件将上传到storage/app/uploads目录
+            'root' => public_path('uploads')
+        ],
 
         's3' => [
             'driver' => 's3',

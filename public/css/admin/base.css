@@ -1,0 +1,14 @@
+.bd{
+    width: 1200px;
+    margin: 20px auto;
+}
+
+.img-view{
+    max-width: 300px;
+    max-height: 200px;
+    overflow: hidden;
+}
+.img-show{
+    max-width: 300px;
+    max-height: 200px;
+}
