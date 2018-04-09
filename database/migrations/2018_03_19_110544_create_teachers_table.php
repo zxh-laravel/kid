@@ -26,7 +26,7 @@ class CreateTeachersTable extends Migration
             $table->string('img');
             $table->string('content');
             $table->integer('class_id');
-            $table->string('last_modify_user');
+            $table->string('last_modify_user')->default('');
             $table->timestamps();
         });
     }

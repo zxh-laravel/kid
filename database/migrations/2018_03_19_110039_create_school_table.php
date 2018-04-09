@@ -32,7 +32,7 @@ class CreateSchoolTable extends Migration
             $table->string('address');
             $table->time('open_time');
             $table->time('close_time');
-            $table->string('last_modify_user');
+            $table->string('last_modify_user')->default('');
             $table->timestamps();
         });
     }

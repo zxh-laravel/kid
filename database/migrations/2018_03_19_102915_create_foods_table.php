@@ -29,8 +29,8 @@ class CreateFoodsTable extends Migration
             $table->string('img');
             $table->tinyInteger('type')->default(1);
             $table->date('date')->default(null);
-            $table->string('create_user');
-            $table->string('last_modify_user');
+            $table->string('create_user')->default('');
+            $table->string('last_modify_user')->default('');
             $table->timestamps();
         });
     }

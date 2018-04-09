@@ -28,8 +28,8 @@ class CreateNewsTable extends Migration
             $table->string('content');
             $table->string('banner');
             $table->tinyInteger('status')->default(1);
-            $table->string('create_user');
-            $table->string('last_modify_user');
+            $table->string('create_user')->default('');
+            $table->string('last_modify_user')->default('');
             $table->timestamps();
         });
     }

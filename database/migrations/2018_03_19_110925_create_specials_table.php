@@ -24,8 +24,8 @@ class CreateSpecialsTable extends Migration
             $table->string('name');
             $table->string('img');
             $table->string('content');
-            $table->string('last_modify_user');
-            $table->string('create_user');
+            $table->string('last_modify_user')->default('');
+            $table->string('create_user')->default('');
             $table->timestamps();
         });
     }

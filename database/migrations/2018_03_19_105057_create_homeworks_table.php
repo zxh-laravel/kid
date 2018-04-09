@@ -26,8 +26,8 @@ class CreateHomeworksTable extends Migration
             $table->string('content');
             $table->integer('class_id');
             $table->date('date')->default(null);
-            $table->string('create_user');
-            $table->string('last_modify_user');
+            $table->string('create_user')->default('');
+            $table->string('last_modify_user')->default('');
             $table->timestamps();
         });
     }

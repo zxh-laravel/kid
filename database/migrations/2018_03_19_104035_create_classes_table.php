@@ -22,8 +22,8 @@ class CreateClassesTable extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('create_user');
-            $table->string('last_modify_user');
+            $table->string('create_user')->default('');
+            $table->string('last_modify_user')->default('');
             $table->timestamps();
         });
     }
