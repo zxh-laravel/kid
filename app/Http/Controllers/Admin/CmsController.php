@@ -57,7 +57,7 @@ class CmsController extends Controller
         ]);
 
         $apiReturn = new ApiReturn();
-        return $apiReturn->success($request);
+        return $apiReturn->success($result);
 
     }
 
@@ -105,7 +105,7 @@ class CmsController extends Controller
         ]);
 
         $apiReturn = new ApiReturn();
-        return $apiReturn->success($request);
+        return $apiReturn->success($result);
     }
 
     /**
