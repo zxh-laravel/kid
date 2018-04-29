@@ -24,7 +24,7 @@ class CreateOnlinesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->tinyInteger('sex')->default(1);
-            $table->integer('mobile');
+            $table->string('mobile');
             $table->integer('age');
             $table->timestamps();
         });

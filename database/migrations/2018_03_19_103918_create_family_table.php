@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClassroomsTable extends Migration
+class CreateFamilyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateClassroomsTable extends Migration
     public function up()
     {
         /*
-        * 新闻
+        * 父母学堂
         * title   标题
         * content  内容
         * banner 头图
@@ -22,7 +22,7 @@ class CreateClassroomsTable extends Migration
         * create_user 创建者
         * last_modify_user 最后修改者
        * */
-        Schema::create('classrooms', function (Blueprint $table) {
+        Schema::create('family', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('content');
@@ -41,6 +41,6 @@ class CreateClassroomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classrooms');
+        Schema::dropIfExists('family');
     }
 }

@@ -8,11 +8,11 @@ $(function () {
         bindEvent: function () {
             $('.j_open_time').datetimepicker({
                 viewMode: 'decades',
-                format: 'hh:mm:ss'
+                format: 'HH:mm:ss'
             });
             $('.j_close_time').datetimepicker({
                 viewMode: 'decades',
-                format: 'hh:mm:ss'
+                format: 'HH:mm:ss'
             });
 
             $('.j_save').click(function () {

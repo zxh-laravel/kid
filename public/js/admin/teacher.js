@@ -5,6 +5,9 @@ $(function () {
             form: {
                 name: '',
                 content: '',
+                word: '',
+                class_id: '',
+                best: '',
                 img: ''
             }
         },
@@ -12,10 +15,10 @@ $(function () {
             this.bindEvent()
         },
         bindEvent: function () {
-            var self = this
+            var self = this;
 
             $('.j_new').click(function () {
-                location.href = '/admin/cmsCreate'
+                location.href = '/admin/teacherCreate'
             })
             $('.j_delete').click(function () {
                 self.s.id = $(this).data('id');
@@ -23,13 +26,13 @@ $(function () {
             })
 
             $('.j_edit').click(function () {
-                location.href = '/admin/cms/' + $(this).data('id')
+                location.href = '/admin/teacher/' + $(this).data('id')
             })
 
             $('.j_confirm_to_delete').click(function(){
                 self.s.id && $.ajax({
                     type: 'delete',
-                    url: '/admin/cms/' + self.s.id,
+                    url: '/admin/teacher/' + self.s.id,
                     success: function (response) {
                         if(response.code === 1) {
                             location.reload()
@@ -48,9 +51,9 @@ $(function () {
                     processData: false,
                     crossDomain: true,
                     success: function (response) {
-                       if (response.code === 1) {
-                           $('.img-show').attr('src', response.data.url);
-                       }
+                        if (response.code === 1) {
+                            $('.j_img_show').attr('src', response.data.url);
+                        }
                     },
                     error: function () {
 
@@ -64,28 +67,31 @@ $(function () {
                     name: $('.j_name').val(),
                     content: $('.j_content').val(),
                     img: $('.j_img_show').attr('src'),
+                    word: $('.j_word').val(),
+                    class_id: $('.j_class').val(),
+                    best: $('.j_best:checked').val(),
                     create_user: 'admin'
                 }
 
                 if (id) {
                     $.ajax({
                         type: 'put',
-                        url: '/admin/cms/' + id,
+                        url: '/admin/teacher/' + id,
                         data: data,
                         success: function (response) {
                             if(response.code === 1) {
-                                location.href = '/admin'
+                                location.href = '/admin/teacher'
                             }
                         }
                     })
                 } else {
                     $.ajax({
                         type: 'post',
-                        url: '/admin/cms',
+                        url: '/admin/teacher',
                         data: data,
                         success: function (response) {
                             if(response.code === 1) {
-                                location.href = '/admin'
+                                location.href = '/admin/teacher'
                             }
                         }
                     })

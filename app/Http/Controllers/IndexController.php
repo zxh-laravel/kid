@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\School;
+use App\Http\Models\Special;
+use App\Http\Models\Teacher;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -14,8 +16,11 @@ class IndexController extends Controller
      */
     public function index()
     {
+        $teacher = Teacher::where('best', 1)->get();
         return view('index', [
-            'school'=> School::where('id', 1)->first()
+            'school'=> School::where('id', 1)->first(),
+            'bestTeachers' => $teacher,
+            'special' => Special::orderBy('created_at', 'desc')->take(10)->get()
         ]);
     }
 

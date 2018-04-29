@@ -1,77 +1,95 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录 - 阳光幼儿园</title>
+    <link rel="stylesheet" href="{{ asset('css/base/swiper.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/base/kid.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/pages/login.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/base/uikit.min.css') }}" />
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Register</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    <!--END UK PAGE-->
+</head>
+<body style="background: #fff;" >
+<div class="uk-login">
+    <div class="form-login uk-margin-auto">
+        <form method="POST" action="{{ route('register') }}">
+        @csrf
+                <div class="uk-card uk-card-default uk-card-large uk-card-body " uk-scrollspy="cls: uk-animation-slide-top; repeat: true">
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+        <h3 class="uk-card-title">账号注册</h3>
+            <span class="uk-card-badge"> 阳光幼儿园——<img src="{{ asset('img/wswork.png') }}" /> </span>
+            <hr />
+            <div class="uk-margin ">
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                    <input class="uk-input " type="text" name="name" placeholder="用户名">
+                </div>
+                @if ($errors->has('name'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <div class="uk-margin ">
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                    <input class="uk-input " type="email" name="email" placeholder="邮箱">
+                </div>
+                @if ($errors->has('email'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <div class="uk-margin">
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon " uk-icon="icon: lock"></span>
+                    <input class="uk-input" type="password" name="password" placeholder="密码">
+                </div>
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <div class="uk-margin">
+                <div class="uk-inline uk-width-1-1">
+                    <span class="uk-form-icon " uk-icon="icon: lock"></span>
+                    <input class="uk-input" type="password" name="password_confirmation" placeholder="密码确认">
                 </div>
             </div>
-        </div>
+            <div class="uk-margin">
+                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit">注册</button>
+            </div>
     </div>
+
+    </form>
 </div>
-@endsection
+</div>
+
+
+<div class="ds-ft">
+    <!--FOOTER 制作-->
+    <footer>
+        <div class="sum-footer">
+            <p class="fooer-left">
+                Copyright©  - DingXin
+            </p>
+            <p class="fooer-right">
+                版权所有：阳光幼儿园
+            </p>
+        </div>
+    </footer>
+
+</div>
+<script type="text/javascript" src="{{ asset('js/base/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/base/swiper.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/base/uikit.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/base/uikit-icons.js') }}"></script>
+</body>
+</html>
+
+

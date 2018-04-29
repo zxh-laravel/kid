@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\Classes;
 use App\Http\Models\Food;
-use App\Http\Models\Homework;
-use App\Http\Models\School;
-use App\Http\Models\Teacher;
-use Faker\Provider\DateTime;
 use Illuminate\Http\Request;
 
-class SchoolController extends Controller
+class FoodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,13 +14,12 @@ class SchoolController extends Controller
      */
     public function index()
     {
-//        $datetime = new \DateTime();
-//        $works = Homework::where('date', $datetime->format('Y-m-d'))->get();
-//        foreach ($works as $w) {
-//            $t['class_info'] = $w->classInfo;
-//        }
-//        return $works;
-        return Classes::get();
+        $datetime = new \DateTime();
+        return view('food', [
+            'foodA' => Food::where('date', $datetime->format('Y-m-d'))->where('dateType', 1)->orderBy('foodType', 'asc')->get(),
+            'foodB' => Food::where('date', $datetime->format('Y-m-d'))->where('dateType', 2)->orderBy('foodType', 'asc')->get(),
+            'foodC' => Food::where('date', $datetime->format('Y-m-d'))->where('dateType', 3)->orderBy('foodType', 'asc')->get()
+        ]);
     }
 
     /**

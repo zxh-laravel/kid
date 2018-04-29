@@ -35,7 +35,7 @@
     </table>
     {!! $list->links() !!}
 
-    <div class="modal fade" id="cmsDelete" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="deleteDialog" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">

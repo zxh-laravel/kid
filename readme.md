@@ -13,3 +13,6 @@ laravel jquery bootstrap
 random code check
 
 check again
+
+#初始化数据库
+php artisan migrate:refresh --seed

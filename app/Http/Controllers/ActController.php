@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Models\Activity;
+use App\Http\Models\News;
 use App\Http\Models\School;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,10 @@ class ActController extends Controller
      */
     public function index()
     {
-        return view('act');
+        return view('act', [
+            'activities' => Activity::orderBy('created_at', 'desc')->take(7)->get(),
+            'news' => News::orderBy('created_at', 'desc')->take(10)->get()
+        ]);
     }
 
     /**

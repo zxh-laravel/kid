@@ -27,7 +27,7 @@ class CreateSchoolTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('content');
-            $table->integer('mobile');
+            $table->string('mobile');
             $table->string('wechat');
             $table->string('address');
             $table->time('open_time');

@@ -29,7 +29,7 @@
                         <a class="nav-link {{Request::getPathInfo() == '/admin' ? 'active' : ''}}" href="/admin">学校信息</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{Request::getPathInfo() == '/admin/cms' ? 'active' : ''}}" href="/admin/cms">CMS</a>
+                        <a class="nav-link {{Request::getPathInfo() == '/admin/teacher' ? 'active' : ''}}" href="/admin/teacher">老师</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
