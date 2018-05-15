@@ -32,22 +32,16 @@
                         <a class="nav-link {{Request::getPathInfo() == '/admin/teacher' ? 'active' : ''}}" href="/admin/teacher">老师</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                        <a class="nav-link {{Request::getPathInfo() == '/admin/act' ? 'active' : ''}}" href="/admin/act">近期活动</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                        <a class="nav-link {{Request::getPathInfo() == '/admin/food' ? 'active' : ''}}" href="/admin/food">食谱</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::getPathInfo() == '/admin/homework' ? 'active' : ''}}" href="/admin/homework">作业</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{Request::getPathInfo() == '/admin/online' ? 'active' : ''}}" href="/admin/online">在线报名</a>
                     </li>
                 </ul>
                 @if (Auth::check())

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\School;
+use App\Http\Models\Activity;
 use App\Http\Utils\ApiReturn;
 use Illuminate\Http\Request;
 
-class SchoolController extends Controller
+class ActController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,10 @@ class SchoolController extends Controller
     public function index()
     {
 
-        return view('admin.school', [
-            "school" => School::find(1)
+        return view('admin.act', [
+            "list" => Activity::paginate(20)
         ]);
+//        return Cms::paginate(20);
     }
 
     /**
@@ -29,6 +30,15 @@ class SchoolController extends Controller
      */
     public function create()
     {
+        return view('admin.actCreate', [
+            "item" => [
+                "id" => null,
+                "title" => null,
+                "content" => null,
+                "create_user" => null,
+                "last_modify-user" => null
+            ]
+        ]);
     }
 
     /**
@@ -39,6 +49,15 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
+        $result = Activity::create([
+            "title" => $request['title'],
+            "content" => $request['content'],
+            "last_modify_user" => $request['create_user'] ? $request['create_user'] : '',
+            "create_user" => $request['create_user'] ? $request['create_user'] : ''
+        ]);
+
+        $apiReturn = new ApiReturn();
+        return $apiReturn->success($result);
 
     }
 
@@ -50,6 +69,10 @@ class SchoolController extends Controller
      */
     public function show($id)
     {
+        return view('admin.actCreate', [
+            "item" => Activity::findOrFail($id)
+        ]);
+//        return Cms::findOrFail($id);
 
     }
 
@@ -61,7 +84,7 @@ class SchoolController extends Controller
      */
     public function edit($id)
     {
-
+        return Activity::findOrFail($id);
     }
 
     /**
@@ -73,20 +96,12 @@ class SchoolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $one = School::find($id);
-        $data = [
-            "name" => $request['name'],
+        $one = Activity::find($id);
+        $result = $one->update([
+            "title" => $request['title'],
             "content" => $request['content'],
-            "wechat" => $request['wechat'],
-            "address" => $request['address'],
-            "mobile" => $request['mobile'],
-            "open_time" => $request['open_time'],
-            "close_time" => $request['close_time'],
-        ];
-        if ($request['create_user']) {
-            $data['last_modify_user'] = $request['create_user'];
-        }
-        $result = $one->update($data);
+            "last_modify_user" => $request['create_user'] ? $request['create_user'] : '',
+        ]);
 
         $apiReturn = new ApiReturn();
         return $apiReturn->success($result);
@@ -100,6 +115,8 @@ class SchoolController extends Controller
      */
     public function destroy($id)
     {
-
+        $result = Activity::find($id)->delete();
+        $apiReturn = new ApiReturn();
+        return $apiReturn->success($result);
     }
 }

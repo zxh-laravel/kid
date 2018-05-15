@@ -1,6 +1,7 @@
 @extends('admin.common.app')
 
 @section('css')
+
 @endsection
 
 @section('content')

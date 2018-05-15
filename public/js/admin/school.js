@@ -23,8 +23,10 @@ $(function () {
                     wechat: $('input[name="wechat"]').val(),
                     address: $('input[name="address"]').val(),
                     open_time: $('input[name="open_time"]').val(),
-                    close_time: $('input[name="close_time"]').val()
+                    close_time: $('input[name="close_time"]').val(),
+                    create_user: $.trim($('#navbarUserDropdown').text()) || ''
                 }
+                console.log(data)
                 $.ajax({
                     type: 'put',
                     url: '/admin/1',

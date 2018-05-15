@@ -43,4 +43,30 @@ Route::prefix('admin')->group(function () {
     Route::get('/cms/{id}', 'Admin\CmsController@show');
     Route::delete('/cms/{id}', 'Admin\CmsController@destroy');
     Route::put('/cms/{id}', 'Admin\CmsController@update');
+
+    Route::get('/act', 'Admin\ActController@index');
+    Route::post('/act', 'Admin\ActController@store');
+    Route::get('/actCreate', 'Admin\ActController@create');
+    Route::get('/act/{id}', 'Admin\ActController@show');
+    Route::delete('/act/{id}', 'Admin\ActController@destroy');
+    Route::put('/act/{id}', 'Admin\ActController@update');
+
+    Route::get('/food', 'Admin\FoodController@index');
+    Route::post('/food', 'Admin\FoodController@store');
+    Route::get('/foodCreate', 'Admin\FoodController@create');
+    Route::get('/food/{id}', 'Admin\FoodController@show');
+    Route::delete('/food/{id}', 'Admin\FoodController@destroy');
+    Route::put('/food/{id}', 'Admin\FoodController@update');
+
+    Route::get('/homework', 'Admin\HomeworkController@index');
+    Route::post('/homework', 'Admin\HomeworkController@store');
+    Route::get('/homeworkCreate', 'Admin\HomeworkController@create');
+    Route::get('/homework/{id}', 'Admin\HomeworkController@show');
+    Route::delete('/homework/{id}', 'Admin\HomeworkController@destroy');
+    Route::put('/homework/{id}', 'Admin\HomeworkController@update');
+
+    Route::get('/online', 'Admin\OnlineController@index');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
