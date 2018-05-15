@@ -2,6 +2,10 @@
     width: 1200px;
     margin: 20px auto;
 }
+img{
+    max-width: 300px;
+    max-height: 200px;
+}
 
 .img-view{
     max-width: 300px;
